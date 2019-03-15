@@ -1,0 +1,16 @@
+{
+  "name": "TwistPHP eCommerce",
+  "description": "List products, add to basket, checkout and payment processing",
+  "version": "0.0.1",
+  "author": {
+	"name": "TwistPHP",
+	"website": "https://twistphp.com",
+	"email": "contact@twistphp.com",
+	"git": "",
+	"bugs": ""
+  },
+  "thirdparty": {
+	"info": "Thanks to twitter for the API example code used in this package",
+	"website": "https://twitter.com"
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "TwistEcommerce",
+    "uri": "twist_ecommerce",
+    "icon": "fa-shopping-cart",
+    "order": 49,
+    "sub-sections": [
+      {
+        "name": "Orders",
+        "uri": "twist_ecommerce/orders",
+        "order": "10"
+      },{
+        "name": "Products",
+        "uri": "twist_ecommerce/products",
+        "order": "20"
+      },{
+        "name": "Settings",
+        "uri": "twist_ecommerce/settings",
+        "order": "30"
+      }
+    ]
+  }
+]

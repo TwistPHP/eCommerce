@@ -5,3 +5,9 @@
 
 	//Optional Line: Add this line if you are removing all package settings
 	Twist::framework()->package()->removeSettings();
+
+    /**
+     * Remove all User Package Hooks for the system
+     */
+    \Twist::framework()->hooks()->cancel('TWIST_MANAGER_ROUTE','ecommerce-manager',true);
+    \Twist::framework()->hooks()->cancel('TWIST_MANAGER_MENU','ecommerce-manager-menu',true);

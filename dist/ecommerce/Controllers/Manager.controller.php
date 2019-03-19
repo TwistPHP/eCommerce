@@ -15,15 +15,6 @@
         public function _index(){
             return $this->_view('ecommerce-manager/dashboard.tpl');
         }
-        public function orders(){
-            return $this->_view('ecommerce-manager/orders/view.tpl');
-        }
-        public function products(){
-            return $this->_view('ecommerce-manager/products/view.tpl');
-        }
-        public function settings(){
-            return $this->_view('ecommerce-manager/settings/view.tpl');
-        }
 
         /**
          * Override the default view function to append the users view path when required

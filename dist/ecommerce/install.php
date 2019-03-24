@@ -2,6 +2,9 @@
 
 	Twist::framework()->package()->install();
 
+    //Optional Line: Add this line if you are adding database tables
+    Twist::framework()->package()->importSQL(sprintf('%s/Data/install.sql',dirname(__FILE__)));
+
     /**
      * Setup the page and menu items in the manager
      */

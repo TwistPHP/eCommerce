@@ -15,6 +15,9 @@ class Products extends \Twist\Core\Controllers\Base{
     public function _index(){
         return $this->_view('ecommerce-manager/products/view.tpl');
     }
+    public function create(){
+        return $this->_view('ecommerce-manager/products/create.tpl');
+    }
 
     /**
      * Override the default view function to append the users view path when required

@@ -1,57 +1,17 @@
-$hexGreen:#529F00;
-$hexWhite:#fff;
-$hexBlack:#212121;
-
 .grid-100{
   &.shop{
-      form{
-        display: flex;
-        display: -webkit-flex;
-        flex-wrap: wrap;
-        -webkit-flex-wrap: wrap;
-        .tabButtons{
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          width: 7%;
-          display: inline-block;
-          float: left;
-
-          li{
-            padding: 20px 10px;
-            font-size: 16px;
-            line-height: 20px;
-            text-align:center;
-            transition: all 0.5s ease-out;
-            word-break: break-word;
-
-            span{
-              width: 100%;
-            }
-
-            &.current{
-              background-color:$hexGreen;
-              color: $hexWhite;
-            }
-            &:hover{
-              cursor: pointer;
-              background-color:$hexGreen;
-              color: $hexWhite;
-              transition:all 0.5s ease-in;
-            }
-          }
-        }
-        .tabs{
-          width: 92%;
-          display: inline-block;
-          float: left;
-          padding-left: 10px;
-
-          textarea{
-            margin-top: 0;
-          }
-        }
-      }
+    ul.tabButtons{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 10%;
+      display: inline-block;
+      float: left;
+    }
+    .tabs{
+      width: 90%;
+      display: inline-block;
+      float: left;
     }
   }
-
+}

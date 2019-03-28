@@ -21,9 +21,9 @@
 
             <div class="tabContainer">
                 <ul class="tabButtons">
-                    <li><span class="fas fa-info-circle"></span> General</li>
-                    <li><span class="fas fa-dolly"></span> Stock</li>
-                    <li><span class="fas fa-table"></span> Attributes</li>
+                    <li><i class="fas fa-info-circle"></i> General</li>
+                    <li><i class="fas fa-dolly"></i> Stock</li>
+                    <li><i class="fas fa-table"></i> Attributes</li>
                 </ul>
                 <div class="tab tab1 general">
 

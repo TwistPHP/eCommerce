@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS /*TWIST_DATABASE_TABLE_PREFIX*/`products`(
   `short_description` text(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` text(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tag` text(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` int(11) NOT NULL,
   `price` int(10) NOT NULL,
   `attributes` text(50) COLLATE utf8mb4_unicode_ci,
   `quantity` int(11) NOT NULL,

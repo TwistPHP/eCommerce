@@ -1,17 +1,10 @@
-.grid-100{
-  &.shop{
-    ul.tabButtons{
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      width: 10%;
-      display: inline-block;
-      float: left;
-    }
-    .tabs{
-      width: 90%;
-      display: inline-block;
-      float: left;
+#twistupload-product_image{
+  ul.twistupload-file-list{
+    margin: 0;
+    padding: 0;
+
+    ul{
+      display: none;
     }
   }
 }

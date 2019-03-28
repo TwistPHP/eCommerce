@@ -7,8 +7,10 @@
         height: 100px;
     }
 </style>
+        <h1>Create Product</h1>
+        <p>Create your product here! add all the information about the product, dont worry if you miss content out can always be edited later on.</p>
         <form action="/manager/twist_ecommerce/products/create" method="post">
-            <div class="box box100 shop">
+            <div class="box box75 shop">
                 <div class="boxTitle">
                     <h3>Create Product</h3>
                 </div>
@@ -16,6 +18,16 @@
                     <input type="text" name="product-name" placeholder="Product Name">
                     <textarea name="product-description" placeholder="Product Description"></textarea>
                 </div>
+                <div class="boxFooter"></div>
+            </div>
+            <div class="box box25">
+                <div class="boxTitle">
+                    <h3>Product image</h3>
+                </div>
+                <div class="boxContent">
+                    {asset:upload,accept='.jpg|.jpeg|.png|.gif',name=product_image,id=product_image,uri='/manager/upload/asset/products'}
+                </div>
+                <div class="boxFooter"></div>
             </div>
 
 
@@ -36,7 +48,6 @@
                             <input type="text" name="product-category" placeholder="Category">
                             <input type="text" name="product-tags" placeholder="Tags">
                             <input type="number" name="product-price" placeholder="Price">
-                            <input type="file" accept="jpg,png" name="product-image">
                         </div>
                         <div class="boxFooter"></div>
                     </div>
@@ -76,6 +87,9 @@
                         <div class="boxFooter"></div>
                     </div>
                 </div>
+            </div>
+            <div class="buttonBar">
+                <button type="submit" class="button button-primary button-3d">Submit</button>
             </div>
         </form>
     </div>

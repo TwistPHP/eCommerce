@@ -4,4 +4,30 @@
   #twistupload-product_image ul.twistupload-file-list ul {
     display: none; }
 
+.box.no-background > .box {
+  height: 100%; }
+
+.categories-output, .tags-output {
+  background-color: #FFF;
+  padding: .625rem .75rem;
+  margin: 5px 1%;
+  width: 98%;
+  border: 1px solid #BDBDBD; }
+  .categories-output ul, .tags-output ul {
+    padding: 0;
+    margin: 0; }
+
+.searchable-input {
+  position: relative; }
+  .searchable-input a.submit-category, .searchable-input a.submit-tags {
+    position: absolute;
+    top: 15px;
+    right: 15px; }
+    .searchable-input a.submit-category span, .searchable-input a.submit-tags span {
+      font-size: 25px;
+      color: #539F00; }
+    .searchable-input a.submit-category:hover span, .searchable-input a.submit-tags:hover span {
+      color: #212121;
+      transition: all 0.5s ease-in; }
+
 /*# sourceMappingURL=ecommerce.css.map */

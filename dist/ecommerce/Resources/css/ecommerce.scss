@@ -8,3 +8,42 @@
     }
   }
 }
+.box{
+  &.no-background{
+    > .box {
+      height: 100%;
+    }
+  }
+}
+.categories-output,.tags-output{
+  background-color: #FFF;
+  padding: .625rem .75rem;
+  margin: 5px 1%;
+  width:98%;
+  border: 1px solid #BDBDBD;
+
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+}
+.searchable-input{
+  position: relative;
+
+  a.submit-category,a.submit-tags{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    
+    span{
+      font-size: 25px;
+      color: #539F00;
+    }
+    &:hover{
+      span{
+        color:#212121;
+        transition: all 0.5s ease-in;
+      }
+    }
+  }
+}

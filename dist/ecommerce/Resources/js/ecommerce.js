@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    $('.delete-cat').on('click', function(){
+       confirm("Are you sure you want to delete this Product Category");
+    });
+    $('.delete-tag').on('click', function(){
+       confirm("Are you sure you want to delete this Product Tag");
+    });
+
     $('.submit-category').on('click', function(){
         var catValue = $('input[name="product-category"]').val();
         if (catValue != ''){

@@ -6,6 +6,21 @@
     ul{
       display: none;
     }
+    li.twistupload-file-list-item{
+      padding: 0;
+      position: relative;
+      img{
+        width: 100%;
+      }
+      button.button{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -48,12 +63,20 @@
       small{
         width: auto;
       }
-      .remove-item{
+      .remove-item,.delete-cat,.delete-tag{
         color:#f5365c;
         font-size: 22px;
         width: 33.333%;
         text-align: right;
         padding-right: 3px;
+      }
+    }
+    .current{
+      label.switch{
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-align-items: center;
       }
     }
   }

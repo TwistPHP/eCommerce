@@ -16,7 +16,28 @@ class Products extends \Twist\Core\Controllers\Base{
         return $this->_view('ecommerce-manager/products/view.tpl');
     }
     public function create(){
-        return $this->_view('ecommerce-manager/products/create.tpl');
+        $arrTags = array('categories' => '' , 'tags' => '');
+
+        $arrProductCats = \Twist::Database()->records('twist_product_cat')->all();
+        $arrProductTags = \Twist::Database()->records('twist_product_tag')->all();
+
+        foreach ($arrProductCats as $arrEachProductCats){
+            $arrTags['categories'] .= $this->_view('ecommerce-manager/products/product_cat.tpl', $arrEachProductCats);
+        }
+        foreach ($arrProductTags as $arrEachProductTags){
+            $arrTags['tags'] .= $this->_view('ecommerce-manager/products/product_tag.tpl',$arrEachProductTags);
+        }
+
+        if (array_key_exists('delete-cat', $_GET)){
+            \Twist::Database()->records('twist_product_cat')->delete($_GET['delete-cat'],'id');
+            \Twist::redirect('/manager/twist_ecommerce/products/create');
+        }
+        if (array_key_exists('delete-tag', $_GET)){
+            \Twist::Database()->records('twist_product_tag')->delete($_GET['delete-tag'],'id');
+            \Twist::redirect('/manager/twist_ecommerce/products/create');
+        }
+
+        return $this->_view('ecommerce-manager/products/create.tpl',$arrTags);
     }
     public function POSTcreate(){
 

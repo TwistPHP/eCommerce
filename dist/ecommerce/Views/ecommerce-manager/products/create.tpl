@@ -100,7 +100,10 @@
                         </div>
                         <div class="categories-output">
                             <ul class="results">
-                                {data:categories}
+                                <div class="current">
+                                    {data:categories}
+                                </div>
+
                             </ul>
                         </div>
                     </div>
@@ -119,7 +122,9 @@
 
                         <div class="tags-output">
                             <ul class="results">
-                                {data:tags}
+                                <div class="current">
+                                    {data:tags}
+                                </div>
                             </ul>
                         </div>
                     </div>

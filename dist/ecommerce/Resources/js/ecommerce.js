@@ -1,3 +1,6 @@
+import {CustomSelect} from "../../../../../TwistPHP/src/manager/js/CustomSelect";
+import {CustomCheckbox} from "../../../../../TwistPHP/src/manager/js/CustomCheckbox";
+
 $(document).ready(function () {
 
     $('.delete-cat').on('click', function(){
@@ -50,4 +53,17 @@ function removeItem(){
     $('.remove-item').on('click', function () {
         $(this).parent().remove();
     });
+}
+
+var TwistAJAX = new twistajax( '/manager/ajax/ecommerce' );
+
+function addTag(){
+
+    TwistAJAX.postForm( 'products/addTag', 'form-id-here')
+        .then( response => {
+            console.error( 'response', response.html );
+        } )
+        .catch( e => {
+            console.error( 'ajax error:', e );
+        } );
 }

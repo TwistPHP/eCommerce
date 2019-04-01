@@ -6,3 +6,5 @@
     $this -> controller( '/twist_ecommerce/orders/%', 'Packages\ecommerce\Controllers\Orders');
     $this -> controller( '/twist_ecommerce/products/%', 'Packages\ecommerce\Controllers\Products');
     $this -> controller( '/twist_ecommerce/settings/%', 'Packages\ecommerce\Controllers\Settings');
+
+    $this -> ajax( '/ajax/ecommerce/products/%', 'Packages\ecommerce\Controllers\AjaxProducts');

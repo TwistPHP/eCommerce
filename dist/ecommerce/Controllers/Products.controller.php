@@ -18,7 +18,9 @@ class Products extends \Twist\Core\Controllers\Base{
     public function create(){
         $arrTags = array('categories' => '' , 'tags' => '');
 
-        $arrProductCats = \Twist::Database()->records('twist_product_cat')->all();
+        $arrProductCats = \Packages\ecommerce\Models\Products::getCategories();
+		$arrTags['categories_json'] = json_encode($arrProductCats);
+
         $arrProductTags = \Twist::Database()->records('twist_product_tag')->all();
 
         foreach ($arrProductCats as $arrEachProductCats){
@@ -26,10 +28,11 @@ class Products extends \Twist\Core\Controllers\Base{
         }
         foreach ($arrProductTags as $arrEachProductTags){
             $arrTags['tags'] .= $this->_view('ecommerce-manager/products/product_tag.tpl',$arrEachProductTags);
+            $jsonTagResults = json_encode($arrEachProductTags);
         }
 
         if (array_key_exists('delete-cat', $_GET)){
-            \Twist::Database()->records('twist_product_cat')->delete($_GET['delete-cat'],'id');
+            \Packages\ecommerce\Models\Products::deleteCategory($_GET['delete-cat']);
             \Twist::redirect('/manager/twist_ecommerce/products/create');
         }
         if (array_key_exists('delete-tag', $_GET)){
@@ -40,6 +43,9 @@ class Products extends \Twist\Core\Controllers\Base{
         return $this->_view('ecommerce-manager/products/create.tpl',$arrTags);
     }
     public function POSTcreate(){
+
+    	print_r($_POST);
+    	die();
 
         $this->_required('product-name','string');
         $this->_required('product-description','string');

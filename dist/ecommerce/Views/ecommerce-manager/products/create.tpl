@@ -7,9 +7,12 @@
         height: 100px;
     }
 </style>
+<script>
+    var productCategories = {data:categories_json};
+</script>
         <h1>Create Product</h1>
         <p>Create your product here! add all the information about the product, dont worry if you miss content out can always be edited later on.</p>
-        <form action="/manager/twist_ecommerce/products/create" method="post">
+        <form action="/manager/twist_ecommerce/products/create" method="post" id="createProduct">
             <div class="box box75 shop">
                 <div class="boxTitle">
                     <h3>Create Product</h3>
@@ -101,7 +104,7 @@
                         <div class="categories-output">
                             <ul class="results">
                                 <div class="current">
-                                    {data:categories}
+
                                 </div>
 
                             </ul>

@@ -1,5 +1,5 @@
-import {CustomSelect} from "../../../../../TwistPHP/src/manager/js/CustomSelect";
-import {CustomCheckbox} from "../../../../../TwistPHP/src/manager/js/CustomCheckbox";
+
+var productCategories = [];
 
 $(document).ready(function () {
 
@@ -13,9 +13,10 @@ $(document).ready(function () {
     $('.submit-category').on('click', function(){
         var catValue = $('input[name="product-category"]').val();
         if (catValue != ''){
-            $(".categories-output .current").before("<li><div class='text-output'>"+ catValue +"</div><small><label class='switch'><input type='checkbox' name='"+catValue+"' value='"+catValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
+            addCategory(catValue);
+            //$(".categories-output .current").before("<li><div class='text-output'>"+ catValue +"</div><small><label class='switch'><input type='checkbox' name='"+catValue+"' value='"+catValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
             $('input[name="product-category"]').val('');
-            removeItem();
+            //removeItem();
         }
     });
     $('.submit-tags').on('click', function(){
@@ -23,7 +24,7 @@ $(document).ready(function () {
         if (tagValue != ''){
             $(".tags-output .current").before("<li><div class='text-output'>"+ tagValue +"</div><small><label class='switch'><input type='checkbox' name='"+tagValue+"' value='"+tagValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
             $('input[name="product-tags"]').val('');
-            removeItem();
+            //removeItem();
         }
     });
 
@@ -35,33 +36,43 @@ $(document).ready(function () {
             var tagValue = $('input[name="product-tags"]').val();
 
             if (catValue != ''){
-                $(".categories-output .current").before("<li><div class='text-output'>"+ catValue +"</div><small><label class='switch'><input type='checkbox' name='"+catValue+"' value='"+catValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
+                addCategory(catValue);
+                //$(".categories-output .current").before("<li><div class='text-output'>"+ catValue +"</div><small><label class='switch'><input type='checkbox' name='"+catValue+"' value='"+catValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
                 $('input[name="product-category"]').val('');
-                removeItem();
+                //removeItem();
             }
 
             if (tagValue != ''){
                 $(".tags-output .current").before("<li><div class='text-output'>"+ tagValue +"</div><small><label class='switch'><input type='checkbox' name='"+tagValue+"' value='"+tagValue+"' checked><div class='slider round'></div></label></small><a href='#' class='remove-item'><span class='far fa-times-circle'></span></a></li>");
                 $('input[name="product-tags"]').val('');
-                removeItem();
+                //removeItem();
             }
+        }else{
+            //Go through cats
+            productCategories.each({
+                con
+            });
         }
+    });
+
+    $(document).on('click', '.delete-cat', function (e) {
+        e.preventDefault();
+        $(this).parent().remove();
     });
 });
 
-function removeItem(){
-    $('.remove-item').on('click', function () {
-        $(this).parent().remove();
-    });
-}
 
 var TwistAJAX = new twistajax( '/manager/ajax/ecommerce' );
 
-function addTag(){
+function addCategory(catValue){
 
-    TwistAJAX.postForm( 'products/addTag', 'form-id-here')
+    TwistAJAX.post(
+        'products/addCategory',
+        { category: catValue, james:'test' }
+        )
         .then( response => {
-            console.error( 'response', response.html );
+            $(".categories-output .current").before(response.html);
+            productCategories = response.cats;
         } )
         .catch( e => {
             console.error( 'ajax error:', e );

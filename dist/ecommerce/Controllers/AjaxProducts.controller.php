@@ -30,17 +30,20 @@
 
 		public function addCategory(){
 
+			$blNewTag = false;
 			$arrCategory = \Packages\ecommerce\Models\Products::getCategoryByName($_POST['category']);
 
 			if(count($arrCategory)){
 				$intCategoryID = $arrCategory['id'];
 			}else{
 				$intCategoryID = \Packages\ecommerce\Models\Products::addCategory($_POST['category']);
+				$blNewTag = true;
 			}
 
 			$arrTagData = array(
 				'cat_name' => $_POST['category'],
-				'id' => $intCategoryID
+				'id' => $intCategoryID,
+				'new' => $blNewTag
 			);
 
 			$arrOut = array(
@@ -54,9 +57,10 @@
 		public function deleteCategory(){
 
 			//use POST DATA and delete tag
+			\Packages\ecommerce\Models\Products::deleteCategory($_POST['category_id']);
 
 			$arrOut = array(
-				'html' => ''
+				'cats' => \Packages\ecommerce\Models\Products::getCategories()
 			);
 
 			return $this->_ajaxRespond($arrOut);

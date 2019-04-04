@@ -21,13 +21,10 @@ class Products extends \Twist\Core\Controllers\Base{
         $arrProductCats = \Packages\ecommerce\Models\Products::getCategories();
 		$arrTags['categories_json'] = json_encode($arrProductCats);
 
-		//Output all the currently linked categories, this will be needed on the edit page
-		//$arrProductLinkedCats = \Packages\ecommerce\Models\Products::linkedCategories($intProductID);
-
         $arrProductTags = \Twist::Database()->records('twist_product_tag')->all();
 
         foreach ($arrProductCats as $arrEachProductCats){
-            $arrTags['categories'] .= $this->_view('ecommerce-manager/products/product_cat.tpl', $arrEachProductCats);
+            $arrTags['categories'] .= $this->_view('ecommerce-manager/products/product_cat_suggest.tpl', $arrEachProductCats);
         }
         foreach ($arrProductTags as $arrEachProductTags){
             $arrTags['tags'] .= $this->_view('ecommerce-manager/products/product_tag.tpl',$arrEachProductTags);
@@ -59,24 +56,26 @@ class Products extends \Twist\Core\Controllers\Base{
 
         if ($this->_check()){
 
-        	$intProductID = \Packages\ecommerce\Models\Products::create(
-        		$_POST['product-sku'],
-				$_POST['product-name'],
-				$_POST['product-description'],
-				$_POST['product-description'],
-				$intAssetID,
-				$_POST['product-price'],
-				$_POST['product-quantity'],
-				$_POST['stock-availability'],
-				$_POST['product-length'],
-				$_POST['product-width'],
-				$_POST['product-height'],
-				$_POST['shipping-cost']
-				);
+            $intAssetID = array_pop(json_decode($_POST['product_image'],true));
 
-        	foreach($_POST['category'] as $intCategoryID){
-				\Packages\ecommerce\Models\Products::linkCategory($intProductID,$intCategoryID);
-			}
+            $resProducts = \Twist::Database()->records('twist_products')->create();
+            $resProducts->set('sku',$_POST['product-sku']);
+            $resProducts->set('name',$_POST['product-name']);
+            $resProducts->set('description',$_POST['product-description']);
+            $resProducts->set('short_description',$_POST['product-description']);
+            $resProducts->set('category',$_POST['product-category']);
+            $resProducts->set('tag',$_POST['product-tags']);
+            $resProducts->set('image',$intAssetID);
+            $resProducts->set('price',$_POST['product-price']);
+            //$resProducts->set('attributes','');
+            $resProducts->set('quantity',$_POST['product-quantity']);
+            $resProducts->set('availability',$_POST['stock-availability']);
+            $resProducts->set('length',$_POST['product-length']);
+            $resProducts->set('width',$_POST['product-width']);
+            $resProducts->set('height',$_POST['product-height']);
+            $resProducts->set('shipping_cost',$_POST['shipping-cost']);
+
+            $resProductsRecord = $resProducts->commit();
 
         } else {
             return $this->create();

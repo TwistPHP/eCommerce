@@ -71,4 +71,32 @@
       color: #212121;
       transition: all 0.5s ease-in; }
 
+.searchable-input {
+  position: relative; }
+  .searchable-input .autoSuggest {
+    position: absolute;
+    max-height: 300px;
+    width: calc(100% - 4px);
+    left: 2px;
+    background-color: #EBEBEB;
+    border: 1px solid #000;
+    overflow: auto;
+    z-index: 600;
+    padding: 12px; }
+    .searchable-input .autoSuggest ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .searchable-input .autoSuggest ul li {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #000; }
+        .searchable-input .autoSuggest ul li div {
+          float: left;
+          width: 80%; }
+        .searchable-input .autoSuggest ul li a {
+          float: left; }
+
 /*# sourceMappingURL=ecommerce.css.map */

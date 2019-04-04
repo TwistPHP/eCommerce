@@ -1,4 +1,4 @@
-<li>
+<li class="{data:new==true?'new-item':''}" data-id="{data:id}">
     <div class="text-output">
         {data:cat_name}
     </div>

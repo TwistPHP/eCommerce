@@ -99,15 +99,13 @@
                         <p>Select or create a new Category</p>
                         <div class="searchable-input">
                             <input type="text" name="product-category" placeholder="Category">
-                            <a href="#" class="submit-category"><span class="fas fa-plus-circle"></span></a>
+                            <a href="#" class="submit-category add-cat"><span class="fas fa-plus-circle"></span></a>
+                            <div class="autoSuggest" style="display: none;">
+                                <ul>{data:categories}</ul>
+                            </div>
                         </div>
                         <div class="categories-output">
-                            <ul class="results">
-                                <div class="current">
-
-                                </div>
-
-                            </ul>
+                            <ul class="selectedCategories"></ul>
                         </div>
                     </div>
                     <div class="boxFooter"></div>

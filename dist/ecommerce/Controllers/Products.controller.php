@@ -21,14 +21,16 @@ class Products extends \Twist\Core\Controllers\Base{
         $arrProductCats = \Packages\ecommerce\Models\Products::getCategories();
 		$arrTags['categories_json'] = json_encode($arrProductCats);
 
+		$arrProductTags = \Packages\ecommerce\Models\Products::getTags();
+		$arrTags['tags_json'] = json_encode($arrProductTags);
+
         $arrProductTags = \Twist::Database()->records('twist_product_tag')->all();
 
         foreach ($arrProductCats as $arrEachProductCats){
             $arrTags['categories'] .= $this->_view('ecommerce-manager/products/product_cat_suggest.tpl', $arrEachProductCats);
         }
         foreach ($arrProductTags as $arrEachProductTags){
-            $arrTags['tags'] .= $this->_view('ecommerce-manager/products/product_tag.tpl',$arrEachProductTags);
-            $jsonTagResults = json_encode($arrEachProductTags);
+            $arrTags['tags'] .= $this->_view('ecommerce-manager/products/product_tag_suggest.tpl',$arrEachProductTags);
         }
 
         if (array_key_exists('delete-cat', $_GET)){

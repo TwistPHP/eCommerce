@@ -1,102 +1,125 @@
 #twistupload-product_image ul.twistupload-file-list {
   margin: 0;
-  padding: 0; }
-  #twistupload-product_image ul.twistupload-file-list ul {
-    display: none; }
-  #twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item {
-    padding: 0;
-    position: relative; }
-    #twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item img {
-      width: 100%; }
-    #twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item button.button {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      text-align: center; }
+  padding: 0;
+}
+#twistupload-product_image ul.twistupload-file-list ul {
+  display: none;
+}
+#twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item {
+  padding: 0;
+  position: relative;
+}
+#twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item img {
+  width: 100%;
+}
+#twistupload-product_image ul.twistupload-file-list li.twistupload-file-list-item button.button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+}
 
 .box.no-background > .box {
-  height: 100%; }
+  height: 100%;
+}
 
 .categories-output, .tags-output {
   background-color: #FFF;
-  padding: .625rem .75rem;
+  padding: 0.625rem 0.75rem;
   margin: 5px 1%;
   width: 98%;
-  border: 1px solid #BDBDBD; }
-  .categories-output ul, .tags-output ul {
-    padding: 0;
-    margin: 0;
-    max-height: 250px;
-    overflow: auto; }
-    .categories-output ul li, .tags-output ul li {
-      list-style: none;
-      display: flex;
-      display: -webkit-flex;
-      align-items: center;
-      -webkit-align-items: center;
-      position: relative;
-      justify-content: space-between;
-      -webkit-justify-content: space-between; }
-      .categories-output ul li .text-output, .tags-output ul li .text-output {
-        padding-right: 20px;
-        font-size: 1rem;
-        width: 33.333%;
-        word-break: break-word; }
-      .categories-output ul li small, .tags-output ul li small {
-        width: auto; }
-      .categories-output ul li .remove-item, .categories-output ul li .delete-cat, .categories-output ul li .delete-tag, .tags-output ul li .remove-item, .tags-output ul li .delete-cat, .tags-output ul li .delete-tag {
-        color: #f5365c;
-        font-size: 22px;
-        width: 33.333%;
-        text-align: right;
-        padding-right: 3px; }
-    .categories-output ul .current label.switch, .tags-output ul .current label.switch {
-      display: flex;
-      display: -webkit-flex;
-      align-items: center;
-      -webkit-align-items: center; }
+  border: 1px solid #BDBDBD;
+}
+.categories-output ul, .tags-output ul {
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow: auto;
+}
+.categories-output ul li, .tags-output ul li {
+  list-style: none;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  position: relative;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.categories-output ul li .text-output, .tags-output ul li .text-output {
+  padding-right: 20px;
+  font-size: 1rem;
+  width: 90%;
+  word-break: break-word;
+}
+.categories-output ul li small, .tags-output ul li small {
+  width: auto;
+}
+.categories-output ul li .remove-item, .categories-output ul li .delete-cat, .categories-output ul li .delete-tag, .tags-output ul li .remove-item, .tags-output ul li .delete-cat, .tags-output ul li .delete-tag {
+  color: #f5365c;
+  font-size: 22px;
+  width: 33.333%;
+  text-align: right;
+  padding-right: 3px;
+}
+.categories-output ul .current label.switch, .tags-output ul .current label.switch {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
 
 .searchable-input {
-  position: relative; }
-  .searchable-input a.submit-category, .searchable-input a.submit-tags {
-    position: absolute;
-    top: 15px;
-    right: 15px; }
-    .searchable-input a.submit-category span, .searchable-input a.submit-tags span {
-      font-size: 25px;
-      color: #539F00; }
-    .searchable-input a.submit-category:hover span, .searchable-input a.submit-tags:hover span {
-      color: #212121;
-      transition: all 0.5s ease-in; }
+  position: relative;
+}
+.searchable-input a.submit-category, .searchable-input a.submit-tags {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.searchable-input a.submit-category span, .searchable-input a.submit-tags span {
+  font-size: 25px;
+  color: #539F00;
+}
+.searchable-input a.submit-category:hover span, .searchable-input a.submit-tags:hover span {
+  color: #212121;
+  transition: all 0.5s ease-in;
+}
 
 .searchable-input {
-  position: relative; }
-  .searchable-input .autoSuggest {
-    position: absolute;
-    max-height: 300px;
-    width: calc(100% - 4px);
-    left: 2px;
-    background-color: #EBEBEB;
-    border: 1px solid #000;
-    overflow: auto;
-    z-index: 600;
-    padding: 12px; }
-    .searchable-input .autoSuggest ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      .searchable-input .autoSuggest ul li {
-        display: inline-block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border-bottom: 1px solid #000; }
-        .searchable-input .autoSuggest ul li div {
-          float: left;
-          width: 80%; }
-        .searchable-input .autoSuggest ul li a {
-          float: left; }
+  position: relative;
+}
+.searchable-input .autoSuggest {
+  position: absolute;
+  max-height: 300px;
+  width: calc(100% - 4px);
+  left: 2px;
+  background-color: #EBEBEB;
+  border: 1px solid #000;
+  overflow: auto;
+  z-index: 600;
+  padding: 12px;
+}
+.searchable-input .autoSuggest ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.searchable-input .autoSuggest ul li {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #000;
+}
+.searchable-input .autoSuggest ul li div {
+  float: left;
+  width: 80%;
+}
+.searchable-input .autoSuggest ul li a {
+  float: left;
+}
 
 /*# sourceMappingURL=ecommerce.css.map */

@@ -53,4 +53,33 @@
 		public static function deleteCategory($intCategoryID){
 			return \Twist::Database()->records('twist_product_cat')->delete($intCategoryID,'id');
 		}
+
+		public static function linkTag($intProductID,$intTagID){
+			$resLink = \Twist::Database()->records('twist_product_tag_link')->create();
+			$resLink->set('product_id',$intProductID);
+			$resLink->set('tag_id',$intTagID);
+			return $resLink->commit();
+		}
+
+		public static function linkedTags($intProductID){
+			return \Twist::Database()->records('twist_product_tag_link')->find($intProductID,'product_id');
+		}
+
+		public static function getTagByName($strTagName){
+			return \Twist::Database()->records('twist_product_tag')->get($strTagName,'tag_name',true);
+		}
+
+		public static function getTags(){
+			return \Twist::Database()->records('twist_product_tag')->all();
+		}
+
+		public static function addTag($strTagName){
+			$resTag = \Twist::Database()->records('twist_product_tag')->create();
+			$resTag->set('tag_name',$strTagName);
+			return $resTag->commit();
+		}
+
+		public static function deleteTag($intTagID){
+			return \Twist::Database()->records('twist_product_tag')->delete($intTagID,'id');
+		}
 	}

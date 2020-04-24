@@ -9,6 +9,7 @@
 </style>
 <script>
     var productCategories = {data:categories_json};
+    var productTags = {data:tags_json}
 </script>
         <h1>Create Product</h1>
         <p>Create your product here! add all the information about the product, dont worry if you miss content out can always be edited later on.</p>
@@ -105,7 +106,9 @@
                             </div>
                         </div>
                         <div class="categories-output">
-                            <ul class="selectedCategories"></ul>
+                            <ul class="selectedCategories">
+                                {data:categories}
+                            </ul>
                         </div>
                     </div>
                     <div class="boxFooter"></div>
@@ -119,13 +122,13 @@
                         <div class="searchable-input">
                             <input type="text" name="product-tags" placeholder="Tags">
                             <a href="#" class="submit-tags"><span class="fas fa-plus-circle"></span></a>
+                            <div class="autoSuggestTags" style="display: none;">
+                                <ul>{data:tags}</ul>
+                            </div>
                         </div>
-
                         <div class="tags-output">
-                            <ul class="results">
-                                <div class="current">
-                                    {data:tags}
-                                </div>
+                            <ul class="selectedTags">
+                                {data:tags}
                             </ul>
                         </div>
                     </div>

@@ -47,6 +47,7 @@
 			);
 
 			$arrOut = array(
+				'cat_id' => $intCategoryID,
 				'cats' => \Packages\ecommerce\Models\Products::getCategories(),
 				'html' => $this->_view('ecommerce-manager/products/product_cat.tpl',$arrTagData)
 			);
@@ -67,12 +68,26 @@
 		}
 
 		public function addTag(){
+			$blNewTag = false;
+			$arrTag = \Packages\ecommerce\Models\Products::getTagByName($_POST['tag']);
+			if(count($arrTag)){
+				$intTagID = $arrTag['id'];
+			} else {
+				$intTagID = \Packages\ecommerce\Models\Products::addTag($_POST['tag']);
+				$blNewTag = true;
+			}
 
 			//use POST DATA and store tag
-			$arrTagData = array();
+			$arrPTagData = array(
+				'tag_name' => $_POST['tag'],
+				'id' => $intTagID,
+				'new' => $blNewTag
+			);
 
 			$arrOut = array(
-				'html' => $this->_view('new-tag.tpl',$arrTagData)
+				'tag_id' => $intTagID,
+				'tags' => \Packages\ecommerce\Models\Products::getTags(),
+				'html' => $this->_view('ecommerce-manager/products/product_tag.tpl',$arrPTagData)
 			);
 
 			return $this->_ajaxRespond($arrOut);
@@ -81,9 +96,10 @@
 		public function deleteTag(){
 
 			//use POST DATA and delete tag
+			\Packages\ecommerce\Models\Products::deleteTag($_POST['tag_id']);
 
 			$arrOut = array(
-				'html' => ''
+				'tags' => \Packages\ecommerce\Models\Products::getTags()
 			);
 
 			return $this->_ajaxRespond($arrOut);

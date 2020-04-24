@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS /*TWIST_DATABASE_TABLE_PREFIX*/`product_cat_link` (
 --
 
 CREATE TABLE IF NOT EXISTS /*TWIST_DATABASE_TABLE_PREFIX*/`product_tag` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=1 ;

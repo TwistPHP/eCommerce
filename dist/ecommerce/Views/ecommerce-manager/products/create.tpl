@@ -91,15 +91,15 @@
                     </div>
                 </div>
             </div>
-            <div class="box box25 no-background">
+            <div class="box box25 no-background cat">
                 <div class="box no-background">
                     <div class="boxTitle">
                         <h3>Categories</h3>
                     </div>
                     <div class="boxContent">
-                        <p>Select or create a new Category</p>
+                        <p>Search and Select Category or Create a new Category</p>
                         <div class="searchable-input">
-                            <input type="text" name="product-category" placeholder="Category">
+                            <input type="text" name="product-category" placeholder="Category" autocomplete="false">
                             <a href="#" class="submit-category add-cat"><span class="fas fa-plus-circle"></span></a>
                             <div class="autoSuggest" style="display: none;">
                                 <ul>{data:categories}</ul>
@@ -107,28 +107,28 @@
                         </div>
                         <div class="categories-output">
                             <ul class="selectedCategories">
-                                {data:categories}
+
                             </ul>
                         </div>
                     </div>
                     <div class="boxFooter"></div>
                 </div>
-                <div class="box no-background">
+                <div class="box no-background tag">
                     <div class="boxTitle">
                         <h3>Tags</h3>
                     </div>
                     <div class="boxContent">
-                        <p>Select or create a new Tag</p>
+                        <p>Search and Select Tag or Create a new Tag</p>
                         <div class="searchable-input">
-                            <input type="text" name="product-tags" placeholder="Tags">
+                            <input type="text" name="product-tags" placeholder="Tags" autocomplete="false">
                             <a href="#" class="submit-tags"><span class="fas fa-plus-circle"></span></a>
-                            <div class="autoSuggestTags" style="display: none;">
+                            <div class="autoSuggest" style="display: none;">
                                 <ul>{data:tags}</ul>
                             </div>
                         </div>
                         <div class="tags-output">
                             <ul class="selectedTags">
-                                {data:tags}
+
                             </ul>
                         </div>
                     </div>

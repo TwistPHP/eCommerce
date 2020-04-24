@@ -1,6 +1,8 @@
 // Product category
 var productCategories = [];
 var productTags = [];
+var boolCatSelect = false;
+var boolTagSelect = false;
 
 var TwistAJAX = new twistajax( '/manager/ajax/ecommerce' );
 
@@ -15,6 +17,30 @@ $(document).ready(function () {
         }
     });
 
+    // active the suggestion box on click of the search box
+    $('input[name="product-category"]').focusin(function(){
+        $('.autoSuggest').hide();
+        boolCatSelect = true;
+        $(this).parent().find('.autoSuggest').show();
+    });
+    $(document).on('mouseup', function(e){
+        var catcontainer = $(".cat");
+        if (boolCatSelect && !catcontainer.is(e.target) && catcontainer.has(e.target).length === 0){
+            $('.cat .searchable-input .autoSuggest').hide();
+            $('.cat .searchable-input .autoSuggest ul li').show();
+        }
+    });
+    /*$(document).on('focusin', 'input[name="product-category"]', function(){
+        $('.autoSuggest').hide();
+        boolCatSelect = true;
+        $(this).parents('.searchable-input').find('.autoSuggest').show();
+    }); */
+    /*$(document).on('mouseup', 'input[name="product-category"]', function(e){
+        var container = $(".cat");
+        if (boolCatSelect && !container.is(e.target) && container.has(e.target).length === 0){
+            $(this).parents('.searchable-input').find('.autoSuggest').hide();
+        }
+    }); */
     //Watch the key presses and show a surgested list of pre-existing categories
     $('input[name="product-category"]').on('keyup',function(e) {
 
@@ -25,11 +51,11 @@ $(document).ready(function () {
         }else{
 
             //Filter the list of suggestions
-            $(".autoSuggest ul li").filter(function () {
+            $(this).parent().find(".autoSuggest ul li").filter(function () {
                 if($(this).text().toLowerCase().indexOf(value) > -1){
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 } else {
-                    $('.autoSuggest').show();
+                    $(this).closest('.autoSuggest').show();
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 }
             });
@@ -122,25 +148,39 @@ $(document).ready(function(){
         var value = $(this).val().toLowerCase();
 
         if(value == ''){
-            $(this).find('.autoSuggestTags').hide();
+            $('.autoSuggest').hide();
         }else{
 
             //Filter the list of suggestions
-            $(this).find(".autoSuggestTags ul li").filter(function () {
+            $(this).parent().find(".autoSuggest ul li").filter(function () {
                 if($(this).text().toLowerCase().indexOf(value) > -1){
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 } else {
-                    $(this).find('.autoSuggestTags').show();
+                    $(this).closest('.autoSuggest').show();
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 }
             });
 
-            //If there are no matching tags hide the surgest list
-            if($(".autoSuggestTags ul li:visible").length === 0){
-                $('.autoSuggestTags').hide();
+            //If there are no matching categories hide the surgest list
+            if($(".autoSuggest ul li:visible").length === 0){
+                $('.autoSuggest').hide();
             }
         }
     });
+
+    $('input[name="product-tags"]').focusin(function(){
+        $('.autoSuggest').hide();
+        boolTagSelect = true;
+        $(this).parent().find('.autoSuggest').show();
+    });
+    $(document).on('mouseup', function(e){
+        var container = $(".tag");
+        if (boolTagSelect && !container.is(e.target) && container.has(e.target).length === 0){
+            $('.tag .searchable-input .autoSuggest').hide();
+            $('.tag .searchable-input .autoSuggest ul li').show();
+        }
+    });
+
 
     //Add a tag from what has been typed in
     $(document).on('click', '.submit-tags', function (e) {

@@ -25,12 +25,15 @@
   height: 100%;
 }
 
+.cat .box .boxContent p, .tag .box .boxContent p {
+  width: 90%;
+}
+
 .categories-output, .tags-output {
   background-color: #FFF;
-  padding: 0.625rem 0.75rem;
-  margin: 5px 1%;
-  width: 98%;
-  border: 1px solid #BDBDBD;
+  padding: 5px 15px 0;
+  margin: 0;
+  width: 100%;
 }
 .categories-output ul, .tags-output ul {
   padding: 0;
@@ -47,6 +50,8 @@
   position: relative;
   justify-content: space-between;
   -webkit-justify-content: space-between;
+  border-bottom: 1px solid #BDBDBD;
+  margin-bottom: 5px;
 }
 .categories-output ul li .text-output, .tags-output ul li .text-output {
   padding-right: 20px;
@@ -96,8 +101,8 @@
   max-height: 300px;
   width: calc(100% - 4px);
   left: 2px;
-  background-color: #EBEBEB;
-  border: 1px solid #000;
+  background-color: #FFF;
+  border: 1px solid #BDBDBD;
   overflow: auto;
   z-index: 600;
   padding: 12px;
@@ -110,16 +115,23 @@
 .searchable-input .autoSuggest ul li {
   display: inline-block;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid #000;
+  margin: 0 0 5px;
+  padding: 0 0 5px;
+  border-bottom: 1px solid #BDBDBD;
+  position: relative;
 }
 .searchable-input .autoSuggest ul li div {
   float: left;
   width: 80%;
 }
 .searchable-input .autoSuggest ul li a {
-  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.searchable-input .autoSuggest ul li a span {
+  font-size: 22px;
+  line-height: 26px;
 }
 
 /*# sourceMappingURL=ecommerce.css.map */

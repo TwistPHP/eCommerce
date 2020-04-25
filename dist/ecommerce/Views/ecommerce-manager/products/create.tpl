@@ -13,6 +13,7 @@
 </script>
         <h1>Create Product</h1>
         <p>Create your product here! add all the information about the product, dont worry if you miss content out can always be edited later on.</p>
+        {messages:all}
         <form action="/manager/twist_ecommerce/products/create" method="post" id="createProduct">
             <div class="box box75 shop">
                 <div class="boxTitle">
@@ -39,7 +40,7 @@
                     <ul class="tabButtons">
                         <li><i class="fas fa-info-circle"></i> General</li>
                         <li><i class="fas fa-dolly"></i> Stock</li>
-                        <li><i class="fas fa-table"></i> Attributes</li>
+                        <li><i class="fas fa-images"></i>Gallery</li>
                     </ul>
                     <div class="tab tab1 general">
 
@@ -78,13 +79,13 @@
                             <div class="boxFooter"></div>
                         </div>
                     </div>
-                    <div class="tab tab3 attributes">
+                    <div class="tab tab3 gallery">
                         <div class="box">
                             <div class="boxTitle">
-                                <h3>Attributes</h3>
+                                <h3>Product Gallery</h3>
                             </div>
                             <div class="boxContent">
-                                <h2>not needed at moment</h2>
+                                {asset:upload,accept='.jpg|.jpeg|.png|.gif',name=product_gallery,id=product_gallery,multiple=multiple,uri='/manager/upload/asset/products'}
                             </div>
                             <div class="boxFooter"></div>
                         </div>

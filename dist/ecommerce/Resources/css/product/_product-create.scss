@@ -159,3 +159,28 @@
 		}
 	}
 }
+.tabContainer{
+	.gallery{
+		ul.twistupload-file-list{
+			flex-direction: unset;
+			-webkit-flex-direction: unset;
+			padding:0 15px;
+			li{
+				border-top: 0;
+				position: relative;
+				padding:0 10px;
+				display: flex;
+				justify-content: center;
+				-webkit-justify-content: center;
+				ul.twistupload-file-list-item-info{
+					display: none;
+				}
+				button{
+					position: absolute;
+					bottom: 0;
+					border: 1px solid black;
+				}
+			}
+		}
+	}
+}

@@ -46,15 +46,6 @@ class Products extends \Twist\Core\Controllers\Base{
     }
     public function POSTcreate(){
 
-        $this->_required('product-name','string');
-        $this->_required('product-description','string');
-        $this->_required('product-price','integer');
-        $this->_required('product-quantity','string');
-        $this->_required('stock-availability','string');
-        $this->_required('shipping-cost', 'integer');
-
-        if ($this->_check()){
-
             $intAssetID = array_pop(json_decode($_POST['product_image'],true));
 	        $arrCats = json_encode($_POST['category']);
 	        $arrTags = json_encode($_POST['tag']);
@@ -67,6 +58,7 @@ class Products extends \Twist\Core\Controllers\Base{
             $resProducts->set('category',$arrCats);
             $resProducts->set('tag',$arrTags);
             $resProducts->set('image',$intAssetID);
+            $resProducts->set('gallery',$_POST['product_gallery']);
             $resProducts->set('price',$_POST['product-price']);
             //$resProducts->set('attributes','');
             $resProducts->set('quantity',$_POST['product-quantity']);
@@ -79,11 +71,7 @@ class Products extends \Twist\Core\Controllers\Base{
 
             $resProductsRecord = $resProducts->commit();
 
-	        \Twist::redirect('manager/twist_ecommerce/products');
-
-        } else {
-			\Twist::redirect('manager/twist_ecommerce/products');
-        }
+	        \Twist::redirect("/manager/twist_ecommerce/products/");
     }
 
     /**

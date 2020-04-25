@@ -134,4 +134,26 @@
   line-height: 26px;
 }
 
+.tabContainer .gallery ul.twistupload-file-list {
+  flex-direction: unset;
+  -webkit-flex-direction: unset;
+  padding: 0 15px;
+}
+.tabContainer .gallery ul.twistupload-file-list li {
+  border-top: 0;
+  position: relative;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.tabContainer .gallery ul.twistupload-file-list li ul.twistupload-file-list-item-info {
+  display: none;
+}
+.tabContainer .gallery ul.twistupload-file-list li button {
+  position: absolute;
+  bottom: 0;
+  border: 1px solid black;
+}
+
 /*# sourceMappingURL=ecommerce.css.map */

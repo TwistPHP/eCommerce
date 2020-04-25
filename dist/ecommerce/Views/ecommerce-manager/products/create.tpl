@@ -52,9 +52,9 @@
                                 <textarea name="product-short" placeholder="Short description"></textarea>
                                 <input type="number" name="product-price" placeholder="Price">
                                 <div class="product-dimensions">
-                                    <input type="text" name="product-length" placeholder="Length">
                                     <input type="text" name="product-width" placeholder="Width">
                                     <input type="text" name="product-height" placeholder="Height">
+                                    <input type="text" name="product-depth" placeholder="Depth">
                                 </div>
                             </div>
                             <div class="boxFooter"></div>
@@ -99,7 +99,7 @@
                     <div class="boxContent">
                         <p>Search and Select Category or Create a new Category</p>
                         <div class="searchable-input">
-                            <input type="text" name="product-category" placeholder="Category" autocomplete="false">
+                            <input type="text" name="product-category" placeholder="Category" autocomplete="category-nopredict">
                             <a href="#" class="submit-category add-cat"><span class="fas fa-plus-circle"></span></a>
                             <div class="autoSuggest" style="display: none;">
                                 <ul>{data:categories}</ul>
@@ -120,7 +120,7 @@
                     <div class="boxContent">
                         <p>Search and Select Tag or Create a new Tag</p>
                         <div class="searchable-input">
-                            <input type="text" name="product-tags" placeholder="Tags" autocomplete="false">
+                            <input type="text" name="product-tags" placeholder="Tags" autocomplete="tag-nopredict">
                             <a href="#" class="submit-tags"><span class="fas fa-plus-circle"></span></a>
                             <div class="autoSuggest" style="display: none;">
                                 <ul>{data:tags}</ul>

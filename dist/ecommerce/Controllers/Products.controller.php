@@ -46,9 +46,6 @@ class Products extends \Twist\Core\Controllers\Base{
     }
     public function POSTcreate(){
 
-    	print_r($_POST);
-    	die();
-
         $this->_required('product-name','string');
         $this->_required('product-description','string');
         $this->_required('product-price','integer');
@@ -59,28 +56,33 @@ class Products extends \Twist\Core\Controllers\Base{
         if ($this->_check()){
 
             $intAssetID = array_pop(json_decode($_POST['product_image'],true));
+	        $arrCats = json_encode($_POST['category']);
+	        $arrTags = json_encode($_POST['tag']);
 
             $resProducts = \Twist::Database()->records('twist_products')->create();
             $resProducts->set('sku',$_POST['product-sku']);
             $resProducts->set('name',$_POST['product-name']);
             $resProducts->set('description',$_POST['product-description']);
-            $resProducts->set('short_description',$_POST['product-description']);
-            $resProducts->set('category',$_POST['product-category']);
-            $resProducts->set('tag',$_POST['product-tags']);
+            $resProducts->set('short_description',$_POST['product-short']);
+            $resProducts->set('category',$arrCats);
+            $resProducts->set('tag',$arrTags);
             $resProducts->set('image',$intAssetID);
             $resProducts->set('price',$_POST['product-price']);
             //$resProducts->set('attributes','');
             $resProducts->set('quantity',$_POST['product-quantity']);
             $resProducts->set('availability',$_POST['stock-availability']);
-            $resProducts->set('length',$_POST['product-length']);
+            $resProducts->set('depth',$_POST['product-depth']);
             $resProducts->set('width',$_POST['product-width']);
             $resProducts->set('height',$_POST['product-height']);
             $resProducts->set('shipping_cost',$_POST['shipping-cost']);
+            $resProducts->set('created',\Twist::DateTime()->date('Y-m-d H:i:s'));
 
             $resProductsRecord = $resProducts->commit();
 
+	        \Twist::redirect('manager/twist_ecommerce/products');
+
         } else {
-            return $this->create();
+			\Twist::redirect('manager/twist_ecommerce/products');
         }
     }
 

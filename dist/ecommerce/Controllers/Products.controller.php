@@ -16,10 +16,14 @@ class Products extends \Twist\Core\Controllers\Base{
 
     	$arrTags = array('products' => '');
     	$arrProducts = \Packages\ecommerce\Models\Products::getProducts();
+    	rsort($arrProducts);
 
     	foreach($arrProducts as $arrProduct){
     		$arrFeatured = \Twist::Asset()->get($arrProduct['image']);
+    		$arrPublishDate = date('d F Y H:i:s',strtotime($arrProduct['created']));
+
 		    $arrProduct['featured_asset'] = $arrFeatured['support']['thumb-64'];
+		    $arrProduct['published_t_d'] = $arrPublishDate;
 
     		$arrTags['products'] .= $this->_view('ecommerce-manager/products/product_view_each.tpl',$arrProduct);
 	    }

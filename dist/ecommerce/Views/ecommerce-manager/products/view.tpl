@@ -7,7 +7,7 @@
     <div class="boxFooter"></div>
 </div>
 <div class="box box100 product-listing">
-    <div class="boxHeader Green">
+    <div class="boxHeader Green" style="display:{data:products!=''?'block' : 'none'};">
         <ul class="flex-row flex-space-between">
             <li>Thumbnail</li>
             <li>Product Title</li>
@@ -15,12 +15,13 @@
             <li>Price</li>
             <li>Stock</li>
             <li>Availability</li>
-            <li>Publish Date</li>
+            <li>Published</li>
             <li></li>
         </ul>
     </div>
     <ul class="product-viewing">
         {data:products}
+        {data:products==''? '<h1>No Products Found</h1><p>Click create to get started.</p> : '' '}
     </ul>
     <div class="boxFooter"></div>
 </div>

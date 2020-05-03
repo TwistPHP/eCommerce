@@ -18,7 +18,11 @@
         <span>{data:availability}</span>
     </div>
     <div class="product createdDate">
-        {data:created}
+       {prettytime[data:created]}
+        <span class="fas fa-info-circle"></span>
+        <div class="extraInfo">
+            Created: {data:published_t_d}
+        </div>
     </div>
     <div class="product Options">
         <ul>

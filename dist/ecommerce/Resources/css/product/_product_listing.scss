@@ -21,15 +21,28 @@
 			padding: 0;
 
 			li{
-				padding: 5px 0 5px;
+				padding: 5px 0 10px;
 				margin-top:10px;
 				border-bottom: 1px solid $hexLightGrey;
 				@include flexbox();
 				@include align-items(center);
 
+				h3,span:not(.fas){
+					font-size: 16px;
+					line-height: 20px;
+					font-weight: 400;
+					margin: 0;
+				}
+
 				.product{
 					@include flex-basis(12.5%);
 					text-align: center;
+
+					&.title{
+						h3{
+							margin: 0;
+						}
+					}
 
 					&.Options{
 						ul{
@@ -52,6 +65,36 @@
 										}
 									}
 								}
+							}
+						}
+					}
+					&.createdDate{
+						position: relative;
+						.extraInfo{
+							position: absolute;
+							right: 0;
+							display: block;
+							opacity: 0;
+							width: 140px;
+							border: 1px solid $hexLightGreen;
+							border-radius: 4px;
+							background-color:$hexLighterGrey;
+							padding:15px 5px;
+							height: 0;
+							transition: all 0.1s ease-out;
+							z-index: 10;
+
+						}
+						span.fas{
+							&:hover{
+								cursor: pointer;
+							}
+						}
+						&.active{
+							.extraInfo{
+								opacity: 1;
+								height: auto;
+								transition: all 0.5s ease;
 							}
 						}
 					}

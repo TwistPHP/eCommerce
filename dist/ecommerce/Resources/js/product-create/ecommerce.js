@@ -1,4 +1,4 @@
-// Product category
+// Product category & Product Create
 var productCategories = [];
 var productTags = [];
 var boolCatSelect = false;

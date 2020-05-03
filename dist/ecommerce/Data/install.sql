@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS /*TWIST_DATABASE_TABLE_PREFIX*/`products` (
   `category` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `tag` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `image` int(11) NOT NULL,
-  `gallery` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+  `gallery` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `price` int(10) NOT NULL,
   `attributes` tinytext COLLATE utf8mb4_unicode_ci,
   `quantity` int(11) NOT NULL,

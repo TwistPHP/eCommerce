@@ -302,7 +302,7 @@ ul, ol {
   padding: 0;
 }
 .box.product-listing ul.product-viewing li {
-  padding: 5px 0 5px;
+  padding: 5px 0 10px;
   margin-top: 10px;
   border-bottom: 1px solid #BDBDBD;
   display: -webkit-box;
@@ -315,12 +315,21 @@ ul, ol {
   -ms-align-items: center;
   align-items: center;
 }
+.box.product-listing ul.product-viewing li h3, .box.product-listing ul.product-viewing li span:not(.fas) {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  margin: 0;
+}
 .box.product-listing ul.product-viewing li .product {
   -webkit-flex-basis: 12.5%;
   -moz-flex-basis: 12.5%;
   -ms-flex-basis: 12.5%;
   flex-basis: 12.5%;
   text-align: center;
+}
+.box.product-listing ul.product-viewing li .product.title h3 {
+  margin: 0;
 }
 .box.product-listing ul.product-viewing li .product.Options ul {
   display: -webkit-box;
@@ -349,6 +358,31 @@ ul, ol {
 }
 .box.product-listing ul.product-viewing li .product.Options ul li.optionButton.Red a span {
   color: #f5365c;
+}
+.box.product-listing ul.product-viewing li .product.createdDate {
+  position: relative;
+}
+.box.product-listing ul.product-viewing li .product.createdDate .extraInfo {
+  position: absolute;
+  right: 0;
+  display: block;
+  opacity: 0;
+  width: 140px;
+  border: 1px solid #96CB52;
+  border-radius: 4px;
+  background-color: #F7F7F7;
+  padding: 15px 5px;
+  height: 0;
+  transition: all 0.1s ease-out;
+  z-index: 10;
+}
+.box.product-listing ul.product-viewing li .product.createdDate span.fas:hover {
+  cursor: pointer;
+}
+.box.product-listing ul.product-viewing li .product.createdDate.active .extraInfo {
+  opacity: 1;
+  height: auto;
+  transition: all 0.5s ease;
 }
 
 /*# sourceMappingURL=ecommerce.css.map */

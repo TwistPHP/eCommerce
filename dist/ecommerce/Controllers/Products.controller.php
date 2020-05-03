@@ -13,7 +13,18 @@ class Products extends \Twist\Core\Controllers\Base{
      * @return bool|string
      */
     public function _index(){
-        return $this->_view('ecommerce-manager/products/view.tpl');
+
+    	$arrTags = array('products' => '');
+    	$arrProducts = \Packages\ecommerce\Models\Products::getProducts();
+
+    	foreach($arrProducts as $arrProduct){
+    		$arrFeatured = \Twist::Asset()->get($arrProduct['image']);
+		    $arrProduct['featured_asset'] = $arrFeatured['support']['thumb-64'];
+
+    		$arrTags['products'] .= $this->_view('ecommerce-manager/products/product_view_each.tpl',$arrProduct);
+	    }
+
+        return $this->_view('ecommerce-manager/products/view.tpl', $arrTags);
     }
     public function create(){
         $arrTags = array('categories' => '' , 'tags' => '');

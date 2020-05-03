@@ -4,6 +4,10 @@
 
 	class Products{
 
+		public static function getProducts(){
+			return \Twist::Database()->records('twist_products')->all();
+		}
+
 		public static function create($strSKU, $stName, $strDescription, $strShortDescription, $intAssetID, $fltPrice, $intQuantity, $intStockAvailability,$intLength,$intWidth,$intHeight,$fltShippingCost){
 
 			$resProducts = \Twist::Database()->records('twist_products')->create();

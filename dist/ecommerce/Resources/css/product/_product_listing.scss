@@ -1,0 +1,62 @@
+.box{
+	&.product-listing{
+		.boxHeader{
+			padding:0;
+			ul{
+				padding: 0;
+
+				li{
+					padding: 15px;
+					border-right: 1px solid $hexWhite;
+					@include flex-basis(12.5%);
+					text-align: center;
+
+					&:last-of-type{
+						border-right: 0;
+					}
+				}
+			}
+		}
+		ul.product-viewing{
+			padding: 0;
+
+			li{
+				padding: 5px 0 5px;
+				margin-top:10px;
+				border-bottom: 1px solid $hexLightGrey;
+				@include flexbox();
+				@include align-items(center);
+
+				.product{
+					@include flex-basis(12.5%);
+					text-align: center;
+
+					&.Options{
+						ul{
+							@include flexbox();
+							@include justify-content(center);
+							@include align-items(center);
+							li{
+								margin:0;
+								padding: 0 5px;
+								border-bottom: 0;
+
+								&.optionButton{
+									font-size: 22px;
+									line-height: 24px;
+									&.Red{
+										a{
+											span{
+												color: $hexRed;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,3 +1,105 @@
+ul, ol {
+  padding: 0 15px;
+  margin: 0;
+  list-style: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-space-between {
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+}
+
+.flex-justify-center {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+.flex-align-center {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-align-content: center;
+  align-content: center;
+}
+
+.flex-align-start {
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  -ms-align-content: flex-start;
+  align-content: flex-start;
+}
+
+.flex-align-end {
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+  -webkit-align-content: flex-end;
+  -moz-align-content: flex-end;
+  -ms-align-content: flex-end;
+  align-content: flex-end;
+}
+
+.Red {
+  color: #f5365c;
+}
+
+.Green {
+  color: #96CB52;
+}
+
+.box .boxHeader {
+  padding: 15px;
+}
+.box .boxHeader.Green {
+  background-color: #539F00;
+  color: #FFF;
+}
+.box .boxHeader.light-Green {
+  background-color: #96CB52;
+  color: #FFF;
+}
 #twistupload-product_image ul.twistupload-file-list {
   margin: 0;
   padding: 0;
@@ -43,13 +145,21 @@
 }
 .categories-output ul li, .tags-output ul li {
   list-style: none;
-  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
-  align-items: center;
+  display: flex;
   -webkit-align-items: center;
-  position: relative;
-  justify-content: space-between;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
   -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  position: relative;
   border-bottom: 1px solid #BDBDBD;
   margin-bottom: 5px;
 }
@@ -70,10 +180,15 @@
   padding-right: 3px;
 }
 .categories-output ul .current label.switch, .tags-output ul .current label.switch {
-  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
-  align-items: center;
+  display: flex;
   -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
 }
 
 .searchable-input {
@@ -135,17 +250,26 @@
 }
 
 .tabContainer .gallery ul.twistupload-file-list {
-  flex-direction: unset;
   -webkit-flex-direction: unset;
+  -moz-flex-direction: unset;
+  -ms-flex-direction: unset;
+  flex-direction: unset;
   padding: 0 15px;
 }
 .tabContainer .gallery ul.twistupload-file-list li {
   border-top: 0;
   position: relative;
   padding: 0 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
   -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
 }
 .tabContainer .gallery ul.twistupload-file-list li ul.twistupload-file-list-item-info {
   display: none;
@@ -153,7 +277,78 @@
 .tabContainer .gallery ul.twistupload-file-list li button {
   position: absolute;
   bottom: 0;
-  border: 1px solid black;
+  border: 1px solid #212121;
+}
+
+.box.product-listing .boxHeader {
+  padding: 0;
+}
+.box.product-listing .boxHeader ul {
+  padding: 0;
+}
+.box.product-listing .boxHeader ul li {
+  padding: 15px;
+  border-right: 1px solid #FFF;
+  -webkit-flex-basis: 12.5%;
+  -moz-flex-basis: 12.5%;
+  -ms-flex-basis: 12.5%;
+  flex-basis: 12.5%;
+  text-align: center;
+}
+.box.product-listing .boxHeader ul li:last-of-type {
+  border-right: 0;
+}
+.box.product-listing ul.product-viewing {
+  padding: 0;
+}
+.box.product-listing ul.product-viewing li {
+  padding: 5px 0 5px;
+  margin-top: 10px;
+  border-bottom: 1px solid #BDBDBD;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+.box.product-listing ul.product-viewing li .product {
+  -webkit-flex-basis: 12.5%;
+  -moz-flex-basis: 12.5%;
+  -ms-flex-basis: 12.5%;
+  flex-basis: 12.5%;
+  text-align: center;
+}
+.box.product-listing ul.product-viewing li .product.Options ul {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+.box.product-listing ul.product-viewing li .product.Options ul li {
+  margin: 0;
+  padding: 0 5px;
+  border-bottom: 0;
+}
+.box.product-listing ul.product-viewing li .product.Options ul li.optionButton {
+  font-size: 22px;
+  line-height: 24px;
+}
+.box.product-listing ul.product-viewing li .product.Options ul li.optionButton.Red a span {
+  color: #f5365c;
 }
 
 /*# sourceMappingURL=ecommerce.css.map */

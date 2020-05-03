@@ -1,0 +1,62 @@
+body{
+
+}
+ul,ol{
+	padding:0 15px;
+	margin: 0;
+	list-style: none;
+}
+.fullWidth{
+	width: 100%;
+}
+.flex-row{
+	@include flexbox();
+	@include flex-wrap(wrap);
+}
+.flex-column{
+	@include flexbox();
+	@include flex-direction(column);
+}
+.flex-space-between{
+	@include justify-content(space-between);
+}
+.flex-justify-center{
+	@include justify-content(center);
+}
+.flex-align-center{
+	@include align-items(center);
+	@include align-content(center);
+}
+.flex-align-start{
+	@include align-items(flex-start);
+	@include align-content(flex-start);
+}
+.flex-align-end{
+	@include align-items(flex-end);
+	@include align-content(flex-end);
+}
+.Red{
+	color: $hexRed;
+}
+.Green{
+	color: $hexLightGreen;
+}
+.box{
+	.boxHeader{
+		padding:15px;
+		&.Green{
+			background-color: $hexGreen;
+			color: $hexWhite;
+		}
+		&.light-Green{
+			background-color:$hexLightGreen;
+			color: $hexWhite;
+		}
+	}
+	.boxContent{
+
+	}
+	.boxFooter{
+
+	}
+}

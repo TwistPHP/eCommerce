@@ -42,7 +42,7 @@
 }
 
 .categories-output,.tags-output{
-	background-color: #FFF;
+	background-color: $hexWhite;
 	padding:5px 15px 0;
 	margin: 0;
 	width:100%;
@@ -56,14 +56,11 @@
 
 		li{
 			list-style: none;
-			display: flex;
-			display: -webkit-flex;
-			align-items: center;
-			-webkit-align-items: center;
+			@include flexbox();
+			@include align-items(center);
+			@include justify-content(space-between);
 			position: relative;
-			justify-content: space-between;
-			-webkit-justify-content: space-between;
-			border-bottom: 1px solid #BDBDBD;
+			border-bottom: 1px solid $hexLightGrey;
 			margin-bottom: 5px;
 
 			.text-output{
@@ -76,7 +73,7 @@
 				width: auto;
 			}
 			.remove-item,.delete-cat,.delete-tag{
-				color:#f5365c;
+				color:$hexRed;
 				font-size: 22px;
 				width: 33.333%;
 				text-align: right;
@@ -85,10 +82,8 @@
 		}
 		.current{
 			label.switch{
-				display: flex;
-				display: -webkit-flex;
-				align-items: center;
-				-webkit-align-items: center;
+				@include flexbox();
+				@include align-items(center);
 			}
 		}
 	}
@@ -103,11 +98,11 @@
 
 		span{
 			font-size: 25px;
-			color: #539F00;
+			color: $hexGreen;
 		}
 		&:hover{
 			span{
-				color:#212121;
+				color:$hexBlack;
 				transition: all 0.5s ease-in;
 			}
 		}
@@ -122,8 +117,8 @@
 		max-height: 300px;
 		width: calc(100% - 4px);
 		left: 2px;
-		background-color: #FFF;
-		border: 1px solid #BDBDBD;
+		background-color: $hexWhite;
+		border: 1px solid $hexLightGrey;
 		overflow: auto;
 		z-index: 600;
 		padding: 12px;
@@ -138,7 +133,7 @@
 				width:100%;
 				margin:0 0 5px;
 				padding:0 0 5px;
-				border-bottom:1px solid #BDBDBD;
+				border-bottom:1px solid $hexLightGrey;
 				position: relative;
 				div{
 					float:left;
@@ -162,23 +157,21 @@
 .tabContainer{
 	.gallery{
 		ul.twistupload-file-list{
-			flex-direction: unset;
-			-webkit-flex-direction: unset;
+			@include flex-direction(unset);
 			padding:0 15px;
 			li{
 				border-top: 0;
 				position: relative;
 				padding:0 10px;
-				display: flex;
-				justify-content: center;
-				-webkit-justify-content: center;
+				@include flexbox();
+				@include justify-content(center);
 				ul.twistupload-file-list-item-info{
 					display: none;
 				}
 				button{
 					position: absolute;
 					bottom: 0;
-					border: 1px solid black;
+					border: 1px solid $hexBlack;
 				}
 			}
 		}

@@ -21,7 +21,7 @@ class Products extends \Twist\Core\Controllers\Base{
     	foreach($arrProducts as $arrProduct){
     		$arrFeatured = \Twist::Asset()->get($arrProduct['image']);
     		$arrPublishDate = date('d F Y H:i:s',strtotime($arrProduct['created']));
-
+    		$arrProduct['price'] = "£".number_format($arrProduct['price']);
 		    $arrProduct['featured_asset'] = $arrFeatured['support']['thumb-64'];
 		    $arrProduct['published_t_d'] = $arrPublishDate;
 

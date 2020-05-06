@@ -15,7 +15,7 @@
         <span>{data:quantity}</span>
     </div>
     <div class="product availability">
-        <span>{data:availability}</span>
+        <span>{data:availability=='in-stock' ? 'In Stock' ? data:availability=='out-of-stock'? 'Out Of Stock'? data:availability=='in-stock-soon'? 'In Stock Soon'}</span>
     </div>
     <div class="product createdDate">
        {prettytime[data:created]}

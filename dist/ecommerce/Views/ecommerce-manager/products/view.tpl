@@ -6,6 +6,17 @@
     </div>
     <div class="boxFooter"></div>
 </div>
+<form class="filter" method="post">
+    <select name="order">
+        <option value="DESC" SELECTED>Normal Order</option>
+        <option value="ASC">Reverse Order</option>
+    </select>
+    <select name="category">
+        <option SELECTED disabled>Select Category</option>
+        {data:categories}
+    </select>
+    <button type="submit" class="button button-primary button-3d Green">Filter</button>
+</form>
 <div class="box box100 product-listing">
     <div class="boxHeader Green" style="display:{data:products!=''?'block' : 'none'};">
         <ul class="flex-row flex-space-between">

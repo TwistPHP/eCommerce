@@ -28,6 +28,39 @@
 
 	class AjaxProducts extends BaseAJAX{
 
+		public function sortProducts(){
+
+			$strOrderBy = $_POST['product']['productCategory'];
+			$strOrderByJsonEncoded = json_encode($strOrderBy);
+			$strDirection = $_POST['product']['productOrder'];
+
+			$arrProducts = \Packages\ecommerce\Models\Products::getProducts("[$strOrderByJsonEncoded]",'category','id',$strDirection);
+			$strProductHTML = "";
+
+			foreach($arrProducts as $arrProduct){
+				$arrFeatured = \Twist::Asset()->get($arrProduct['image']);
+				$arrPublishDate = date('d F Y H:i:s',strtotime($arrProduct['created']));
+				$arrProduct['price'] = "£".number_format($arrProduct['price']);
+				$arrProduct['featured_asset'] = $arrFeatured['support']['thumb-64'];
+				$arrProduct['published_t_d'] = $arrPublishDate;
+
+				$strProductHTML .= $this->_view('ecommerce-manager/products/product_view_each.tpl',$arrProduct);
+			}
+
+			if($strProductHTML == ''){
+				$strProductHTML = "<h1>No Products found</h1>";
+			}
+
+			$arrOut = array(
+				'product_category' => $strOrderBy,
+				'product_order' => $strDirection,
+				'products' => \Packages\ecommerce\Models\Products::getProducts(),
+				'html' => $strProductHTML
+			);
+
+			return $this->_ajaxRespond($arrOut);
+		}
+
 		public function addCategory(){
 
 			$blNewTag = false;

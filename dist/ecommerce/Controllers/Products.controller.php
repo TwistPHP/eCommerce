@@ -14,9 +14,17 @@ class Products extends \Twist\Core\Controllers\Base{
      */
     public function _index(){
 
-    	$arrTags = array('products' => '');
+    	$arrTags = array('products' => '', 'categories' => '');
+
+    	// all Categories
+	    $arrCats = \Packages\ecommerce\Models\Products::getCategories();
+	    foreach($arrCats as $arrCat){
+	    	$arrTags['categories'] .= $this->_view('ecommerce-manager/products/filter_options/each_cat.tpl',$arrCat);
+	    }
+
+    	// all products (add first param to decide what to sort by see model)
     	$arrProducts = \Packages\ecommerce\Models\Products::getProducts();
-    	rsort($arrProducts);
+    	//rsort($arrProducts);
 
     	foreach($arrProducts as $arrProduct){
     		$arrFeatured = \Twist::Asset()->get($arrProduct['image']);

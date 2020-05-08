@@ -4,8 +4,8 @@
 
 	class Products{
 
-		public static function getProducts(){
-			return \Twist::Database()->records('twist_products')->all();
+		public static function getProducts($mxdValue = null, $strField = null ,$strOrderBy = 'id', $strDirection = 'DESC'){
+			return \Twist::Database()->records('twist_products')->find($mxdValue,$strField,$strOrderBy,$strDirection);
 		}
 
 		public static function create($strSKU, $stName, $strDescription, $strShortDescription, $intAssetID, $fltPrice, $intQuantity, $intStockAvailability,$intLength,$intWidth,$intHeight,$fltShippingCost){

@@ -33,8 +33,14 @@
 			$strOrderBy = $_POST['product']['productCategory'];
 			$strOrderByJsonEncoded = json_encode($strOrderBy);
 			$strDirection = $_POST['product']['productOrder'];
+			$mxdValue = "";
+			if($strOrderBy != "reset"){
+				$mxdValue = "[$strOrderByJsonEncoded]";
+			} else {
+				$mxdValue = null;
+			}
 
-			$arrProducts = \Packages\ecommerce\Models\Products::getProducts("[$strOrderByJsonEncoded]",'category','id',$strDirection);
+			$arrProducts = \Packages\ecommerce\Models\Products::getProducts($mxdValue,'category','id',$strDirection);
 			$strProductHTML = "";
 
 			foreach($arrProducts as $arrProduct){

@@ -13,6 +13,7 @@
     </select>
     <select name="category">
         <option SELECTED disabled>Select Category</option>
+        <option value="reset">All Categories</option>
         {data:categories}
     </select>
     <button type="submit" class="button button-primary button-3d Green">Filter</button>
